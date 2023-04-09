@@ -17,4 +17,9 @@ class Score
   {
     tocke=0;
   }
+  
+  int getTocke()
+  {
+    return tocke;
+  }
 }
