@@ -89,7 +89,7 @@ void draw()
         
         
       rk.display(); //rekord
-      
+      sc.display();
       
       if(restart.klik())
       {
