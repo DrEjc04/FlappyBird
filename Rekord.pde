@@ -46,6 +46,6 @@ class Rekord
   void zapisiRekord()
   {
     saveStrings("rekordi.txt",tabelaRekordov);
-    print("shranilo nov rekord");
+    //print("shranilo nov rekord");
   }
 }

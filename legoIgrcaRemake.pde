@@ -64,7 +64,7 @@ void draw()
       if(!alive())
       {
         rk.zapisiRekord();
-        print("poklicalo metodo");
+        //print("poklicalo metodo");
       }
         
       alive();
