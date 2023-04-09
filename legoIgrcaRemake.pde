@@ -1,6 +1,7 @@
 Zoga zoga=new Zoga();
 Pravokotnik[] prav=new Pravokotnik[2];
 Score sc=new Score();
+Rekord rk=new Rekord();
 Gumb restart=new Gumb(250,250,200,80);
 Gumb menu=new Gumb(250,150,200,80);
 Gumb t1=new Gumb(180, 300, 60,60);
@@ -37,6 +38,7 @@ void setup()
   //2 je settings
   //3 je start screen
   ponastavi(); //first time setup
+  rk.naloziRekord();
 }
 
 
@@ -49,7 +51,7 @@ void draw()
       background(#7AEAF7);
       update();
       display();
-  
+      sc.display();
       if(keyPressed)
       {  
         if(zoga.hitrost.y>2)
@@ -59,6 +61,12 @@ void draw()
       } 
       logo();
       regenPravokotnik();
+      if(!alive())
+      {
+        rk.zapisiRekord();
+        print("poklicalo metodo");
+      }
+        
       alive();
     }
     break;
@@ -72,6 +80,17 @@ void draw()
       
       restart.display("RESTART");
       menu.display("MENU");
+      
+      //if(rk.getRekord()>sc.tocke)
+      //{//v primeru če je rekord polomljen
+      //  rk.setRekord(sc.tocke);
+      //  rk.zapisiRekord();
+      //}
+        
+        
+      rk.display(); //rekord
+      
+      
       if(restart.klik())
       {
         screen=0;
@@ -157,7 +176,7 @@ void display()
   zoga.display();
   for(int k=0;k<prav.length;k++)
     prav[k].display();
-  sc.display();
+  //sc.display();
 }
 
 void regenPravokotnik()
@@ -170,6 +189,9 @@ for(int k=0;k<prav.length;k++)
        sc.tocke++;
     }
   }
+  
+  if(sc.tocke>rk.rekord)
+    rk.setRekord(sc.tocke);
 }
 
 boolean alive()
@@ -209,6 +231,7 @@ void ponastavi()
   {
     prav[k].ponastaviPravokotnik(k*300);
   }
+  
   sc.resetTocke();
 }
 
