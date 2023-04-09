@@ -1,10 +1,10 @@
-class Gumb
+class Gumb1
 {
 int x;
 int y;
 int sirina;
 int visina;
-Gumb(int x0, int y0, int sirina0, int visina0)
+Gumb1(int x0, int y0, int sirina0, int visina0)
 {
   x=x0;
   y=y0;
